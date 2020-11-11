@@ -1,0 +1,506 @@
+#bin/bash
+
+# MACOSX_Automated_Checklist Version 3.7.1.2019
+
+
+# Function allows the script to list users within the OS
+MacOsUserTracker () 
+{
+#Rev out user name, Did not display sensitive Information
+id -P {ADD USER NAME}; 
+id -P {ADD USER NAME}; 
+id -P {ADD USER NAME}; 
+id -P {ADD USER NAME};
+id -P {ADD USER NAME}; 
+id -P {ADD USER NAME}; 
+id -P {ADD USER NAME}; 
+id -P {ADD USER NAME};
+id -P {ADD USER NAME}; 
+id -P {ADD USER NAME}; 
+id -P {ADD USER NAME}; 
+id -P {ADD USER NAME};
+
+
+
+# id -P "<account name>"
+# if the account is displayed with spaces use quotations. id -P "Account With Spaces"
+
+}
+
+# Function which lists version with the checklist.
+
+MacOSxVersionTracker () {
+
+# variables and arrays are constructed to print out values within the OS. variables consist of input name and input version for calling out the name of the version and number.
+# variables name good and bad to print out values that are and not successfuly found  within the OS
+# variables that value of the checklist and pass to another variable to wrap the value without spitting error when assigning it to the arrays. 
+
+inputname=()
+inputversion=()
+goodname=()
+goodversion=()
+badname=()
+badversion=()
+
+
+# #<-Creates a Comment for code documentation
+# Create a variable that stores the command of the version number, name = defaults read /location/info.plist CFBundleShortVersionString
+# Create a variable that would wrap the variable for passing it the the error, nam =$(eval name)
+# Create the string of the version name and store the name of the version within inputname, use _ when dealing with spaces inputname+=("Version_Name")
+# store the variable wraper within the input version array  inputversion+=("$nam")
+
+# #example of name
+# name = defaults read /location/info.plist CFBundleShortVersionString
+# nam =$(eval name)
+# inputname+=("Version_Name")
+# inputversion+=("$nam")
+
+
+
+#iBooks
+Ibook1="defaults read /Applications/iBooks.app/Contents/Info.plist CFBundleShortVersionString"
+Iboo1=$(eval $Ibook1)
+inputname+=("IBooks")
+inputversion+=("$Iboo1")
+
+
+#Books 
+Ibook2="defaults read /Applications/Books.app/Contents/Info.plist CFBundleShortVersionString"
+Iboo2=$(eval $Ibook2)
+inputname+=("Books")
+inputversion+=("$Iboo2")
+
+#Calendar
+Calenda="defaults read /Applications/Calendar.app/Contents/Info.plist CFBundleShortVersionString"
+Calander=$(eval $Calenda)
+inputname+=("Calender")
+inputversion+=("$Calander")
+
+#Home
+Hom="defaults read /Applications/Home.app/Contents/Info.plist CFBundleShortVersionString"
+Home=$(eval $Hom)
+inputname+=("Home")
+inputversion+=("$Home")
+
+#iTunes
+iTune="defaults read /Applications/iTunes.app/Contents/Info.plist CFBundleShortVersionString"
+iTunes=$(eval $iTune)
+inputname+=("iTunes")
+inputversion+=("$iTunes")
+
+
+#Maps
+Map="defaults read /Applications/Maps.app/Contents/Info.plist CFBundleShortVersionString"
+Maps=$(eval $Map)
+inputname+=("Maps")
+inputversion+=("$Maps")
+
+
+#News 
+New="defaults read /Applications/News.app/Contents/Info.plist CFBundleShortVersionString"
+News=$(eval $New)
+inputname+=("News")
+inputversion+=("$News")
+
+# Photos
+Photo="defaults read /Applications/Photos.app/Contents/Info.plist CFBundleShortVersionString"
+Photos=$(eval $Photo)
+inputname+=("Photos")
+inputversion+=("$Photos")
+
+#QuickTime Player
+QuickTime_Player="defaults read /Applications/QuickTime\ Player.app/Contents/Info.plist CFBundleShortVersionString"
+QuickTimePlayer=$(eval $QuickTime_Player)
+inputname+=("QuickTime_Player")
+inputversion+=($QuickTimePlayer)
+
+#Safari
+Safar="defaults read /Applications/Safari.app/Contents/Info.plist CFBundleShortVersionString"
+Safari=$(eval $Safar)
+inputname+=("Safari")
+inputversion+=("$Safari")
+
+#Siri
+Sir="defaults read /Applications/Siri.app/Contents/Info.plist CFBundleShortVersionString"
+Siri=$(eval $Sir)
+inputname+=("Siri")
+inputversion+=("$Siri")
+
+
+#Stocks
+Stock="defaults read /Applications/Stocks.app/Contents/Info.plist CFBundleShortVersionString"
+Stocks=$(eval $Stock)
+inputname+=("Stocks")
+inputversion+=("$Stocks")
+
+
+#Voice Memoms	
+Voice_Memos="defaults read /Applications/VoiceMemos.app/Contents/Info.plist CFBundleShortVersionString"
+VoiceMemos=$(eval $Voice_Memos)
+inputname+=("Voice_Memos")
+inputversion+=("$VoiceMemos")
+
+
+#KeyNote
+Key_Note="defaults read /Applications/Keynote.app/Contents/Info.plist CFBundleShortVersionString"
+KeyNote=$(eval $Key_Note)
+inputname+=("KeyNote")
+inputversion+=("$KeyNote")
+
+#Numbers
+Number="defaults read /Applications/Numbers.app/Contents/Info.plist CFBundleShortVersionString"
+Numbers=$(eval $Number)
+inputname+=("Numbers")
+inputversion+=("$Numbers")
+
+#Pages
+Page="defaults read /Applications/Pages.app/Contents/Info.plist CFBundleShortVersionString"
+Pages=$(eval $Page)
+inputname+=("Pages")
+inputversion+=("$Pages")
+
+#GarageBand
+Garage_Band="defaults read /Applications/GarageBand.app/Contents/Info.plist CFBundleShortVersionString"
+GarageBand=$(eval $Garage_Band)
+inputname+=("GarageBand")
+inputversion+=("$GarageBand")
+
+#iMovie
+iMovi="defaults read /Applications/iMovie.app/Contents/Info.plist CFBundleShortVersionString"
+iMovie=$(eval $iMovi)
+inputname+=("iMovie")
+inputversion+=("$iMovie")
+
+#Microsoft Office Serializer
+Microsoft_Office_Serializer="system_profiler SPInstallHistoryDataType | grep Date | head -n 1"
+MicrosoftOfficeSerializer="$(eval $Microsoft_Office_Serializer)"
+inputname+=("Microsoft_Office_Serializer")
+inputversion+=("$MicrosoftOfficeSerializer")
+
+
+#Microsoft Excel
+Microsoft_Excel="defaults read /Applications/Microsoft\ Excel.app/Contents/Info.plist CFBundleShortVersionString"
+MicrosoftExcel="$(eval $Microsoft_Excel)"
+inputname+=("Microsoft_Excel")
+inputversion+=("$MicrosoftExcel")
+
+# Microsoft OneNote
+Microsoft_OneNote="defaults read /Applications/Microsoft\ OneNote.app/Contents/Info.plist CFBundleShortVersionString"
+MicrosoftOneNote="$(eval $Microsoft_OneNote)"
+inputname+=("Microsoft_OneNote")
+inputversion+=("$MicrosoftOneNote")
+
+# Microsoft Outlook
+Microsoft_Outlook="defaults read /Applications/Microsoft\ Outlook.app/Contents/Info.plist CFBundleShortVersionString"
+MicrosoftOutlook="$(eval $Microsoft_Outlook)"
+inputname+=("Microsoft_Outlook")
+inputversion+=("$MicrosoftOutlook")
+
+#Microsoft PowerPoint
+Microsoft_PowerPoint="defaults read /Applications/Microsoft\ PowerPoint.app/Contents/Info.plist CFBundleShortVersionString"
+MicrosoftPowerPoint=$(eval $Microsoft_PowerPoint)
+inputname+=("Microsoft_PowerPoint")
+inputversion+=("$MicrosoftPowerPoint")
+
+#Microsoft SharePoint
+Microsoft_Share="/usr/libexec/PlistBuddy -c 'print ":CFBundleVersion"' /Library/Internet\ Plug-Ins/SharePointWebKitPlugin.webplugin/Contents/Info.plist"
+MicrosoftSharePoint=$(eval $Microsoft_Share)
+inputname+=("Microsoft_SharePoint")
+inputversion+=("$MicrosoftSharePoint")
+
+#Microsoft Teams
+Microsoft_Team="defaults read /Applications/Microsoft\ Teams.app/Contents/Info.plist CFBundleShortVersionString"
+MicrosoftTeam=$(eval $Microsoft_Team)
+inputname+=("Microsoft_Teams")
+inputversion+=("$MicrosoftTeam")
+
+
+#Microsoft Word 
+Microsoft_Word="defaults read /Applications/Microsoft\ Word.app/Contents/Info.plist CFBundleShortVersionString"
+MicrosoftWord="$(eval $Microsoft_Word)"
+inputname+=("Microsoft_Word")
+inputversion+=("$MicrosoftWord")
+
+#Microsoft Skype For Business
+Skype_For_Business="defaults read /Applications/Skype\ for\ Business.app/Contents/Info.plist CFBundleShortVersionString"
+SkypeForBusiness="$(eval $Skype_For_Business)"
+inputname+=("Microsoft_Skype_For_Business")
+inputversion+=("$SkypeForBusiness")
+
+#_____________________________________________
+# Adobe Air
+Adobe_Air="defaults read /Library/Frameworks/Adobe\ AIR.framework/Versions/1.0/Adobe\ AIR\ Application\ Installer.app/Contents/Info.plist CFBundleShortVersionString"
+Adobee_Air=$(eval $Adobe_Air)
+inputname+=("Adobe_Air")
+inputversion+=("$Adobee_Air")
+
+# Adobe Flash Player
+AdobeFlash="defaults read /Applications/Utilities/Adobe\ Flash\ Player\ Install\ Manager.app/Contents/Info.plist CFBundleShortVersionString"
+Adobe__Flash=$(eval $AdobeFlash)
+inputname+=("Adobe_FlashPlayer")
+inputversion+=("$Adobe__Flash")
+
+#______________________________________________
+
+# Adobe Acrobat Reader DC
+Adobe_Acrobat_Reader_DC="defaults read /Applications/Adobe\ Acrobat\ Reader\ DC.app/Contents/Info.plist CFBundleShortVersionString"
+AdobeAcrobatReaderDC=$(eval $Adobe_Acrobat_Reader_DC)
+inputname+=("Adobe_Acrobat_Reader_DC")
+inputversion+=("$AdobeAcrobatReaderDC")
+
+
+
+# Audacity
+Audac="defaults read /Applications/Audacity.app/Contents/Info.plist CFBundleShortVersionString"
+Audacity=$(eval $Audac)
+inputname+=("Audacity")
+inputversion+=("$Audacity")
+
+
+#CrowdStrike Falcon
+CrowdStrike_Falcon="sysctl cs | grep 'cs.version'"
+CrowdStrikeFalcon=$(eval $CrowdStrike_Falcon)
+inputname+=("CrowdStrike_Falcon")
+inputversion+=("$CrowdStrikeFalcon")
+
+
+#Firefox
+Fire_Fox="defaults read /Applications/Firefox.app/Contents/Info.plist CFBundleShortVersionString"
+Firefox=$(eval $Fire_Fox)
+inputname+=("Fire_Fox")
+inputversion+=("$Firefox")
+
+
+# Google Chrome
+Google_Chrome="defaults read /Applications/Google\ Chrome.app/Contents/Info.plist CFBundleShortVersionString"
+GoogleChrome=$(eval $Google_Chrome)
+inputname+=("Google_Chrome")
+inputversion+=("$GoogleChrome")
+
+
+# javac
+Javat=$(java -version 2>&1 | awk -F '"' 'NR==1 {print $2}')
+#Javat="defaults read /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/lib/deploy/JavaControlPanel.prefPane/Contents/Info.plist CFBundleShortVersionString"
+inputname+=("Java")
+inputversion+=("$Javat")
+
+Lexmark_Printer="defaults read /Library/Image\ Capture/Devices/Lexmark\ Scanner.app/Contents/version.plist CFBundleShortVersionString"
+LexmarkPrinter=$(eval $Lexmark_Printer)
+inputname+=("Lexmark_Printer")
+inputversion+=("$LexmarkPrinter")
+
+
+#NBC Learn Offline Player
+NBC_Learn_Offline_Player="defaults read /Applications/NBC\ Learn\ Offline.app/Contents/Info.plist CFBundleShortVersionString"
+NBCLearnOfflinePlayer=$(eval $NBC_Learn_Offline_Player)
+inputname+=("NBC_Learn_Offline_Player")
+inputversion+=("$NBCLearnOfflinePlayer")
+
+# Shockwave Player
+Shockwave_Player="defaults read /Library/Application\ Support/Adobe/Shockwave\ 12/DirectorShockwave.bundle/Contents/Info.plist CFBundleShortVersionString"
+Shockwave_Players="$(eval $Shockwave_Player)"
+inputname+=("Shockwave_Player")
+inputversion+=("$Shockwave_Players")
+
+#Symantec Endpoint Protection
+Symantec_Endpoint_Protection="defaults read /Applications/Symantec\ Solutions/Symantec\ Endpoint\ Protection.app/Contents//Info.plist CFBundleShortVersionString"
+SymantecEndpointProtection=$(eval $Symantec_Endpoint_Protection)
+inputname+=("Symantec_Endpoint_Protection")
+inputversion+=("$SymantecEndpointProtection")
+
+
+# Count the versions within the input array
+
+count=0
+lenforname=${#inputname[*]} 
+lenforversion=${#inputversion[*]}
+let numbername=$lenforname
+let numberversion=$lenforversion
+
+
+countgood=0
+i=0
+printf %s%s "$numbername Version Name $numberversion Version APP Listed"
+printf "\n"
+
+# This procces will time stamp the documents 
+
+printf "\n" >> /Users/admin/Desktop/FoundVersion.txt
+printf "\n" >> /Users/admin/Desktop/NotFoundVersion.txt
+Date >> /Users/admin/Desktop/FoundVersion.txt
+Date >> /Users/admin/Desktop/NotFoundVersion.txt
+printf "\n" >> /Users/admin/Desktop/FoundVersion.txt
+printf "\n" >> /Users/admin/Desktop/NotFoundVersion.txt
+
+# will print out the versions within the checklist only if the inputname matches with the input version
+
+if [ $numbername == $numberversion ]
+then
+{
+	printf "\nVersion List"
+        printf "\nVersion List" >> /Users/admin/Desktop/FoundVersion.txt
+	printf "\nVersion List" >> /Users/admin/Desktop/NotFoundVersion.txt
+	for (( i; i<${lenforname}; ++i ))
+	do	
+		if [[ -z ${inputversion[i]##"exit"} ]]
+		then
+			printf "\n✘ [%d] %-30s                  %25s" "${i}" "${inputname[i]}"   "${inputversion[i]}" >> /Users/admin/Desktop/NotFoundVersion.txt
+			printf "\n✘ [%d] %-30s                  %25s" "${i}" "${inputname[i]}"   "${inputversion[i]}"
+		else
+
+			printf "\n✔ [%d] %-30s                 %25s" "${i}" "${inputname[i]}"  "${inputversion[i]}" >> /Users/admin/Desktop/FoundVersion.txt
+			printf "\n✔ [%d] %-30s                 %25s" "${i}" "${inputname[i]}"  "${inputversion[i]}" 
+			
+		fi
+
+done
+
+
+}
+else
+{
+	printf "Number of the name of the version does not match with the number of the version/n"
+	for (( i=0; i<${lenforname}; ++i ))
+	do
+	
+		printf "[%d]%s--->[%d]%s\n\n\n" ${i} ${inputname[i]} ${i} ${inputversion[i]}
+	done	
+}
+fi
+
+}
+
+#Opens Applications Withing The Checklist
+
+MacOsAcessApplication () 
+{
+
+osascript -e 'display dialog "Application and system prefences should open orderly base on the MacOSx checklist,Close the application for the next one to open" with title " OSx Application"'
+open -W x-apple.systempreferences:com.apple.preference
+open -W /System/Library/CoreServices/Finder.app/Contents/Applications/AirDrop.app/
+open -W /Applications/Facetime.app
+#osascript -e 'display dialog "Look at the dock at the bottom, do you see the App Store, no? next application will appear in 5 sec" with title " OSx Application"'
+Sleep 2
+osascript -e 'display dialog "System Preference will open, click on Desktop & User and check if admin is able to modify desktop. ←" with title " OSx Application"'
+open -W x-apple.systempreferences:com.apple.preference
+osascript -e 'display dialog "System Preference will open click User and Groups and go to login item ↙.  " with title " Osx Application"'
+open -W x-apple.systempreferences:com.apple.preference
+open -Wb  com.apple.systempreferences /System/Library/PreferencePanes/iCloudPref.prefPane
+osascript -e 'display dialog "Press ⌘ + Space AND TYPE SHARING TO CHECK ACCESS" with icon stop with title " OSx Application"'
+osascript -e 'display dialog "Press Not Now and Skip When Message Appear" with title " OSx Application"'
+open -W /Applications/Messages.app
+open -Wb com.apple.systempreferences /System/Library/PreferencePanes/Accounts.prefPane/
+open -Wb com.apple.systempreferences /System/Library/PreferencePanes/PrintAndFax.prefPane
+open -Wb com.apple.systempreferences /System/Library/PreferencePanes/Security.prefPane/
+open -Wb com.apple.systempreferences /System/Library/PreferencePanes/EnergySaver.prefPane/
+osascript -e 'display dialog "Confirm if Notification Center appears in the top right corner" with icon stop with title " OSx Application"'
+open -Wb com.apple.systempreferences /System/Library/PreferencePanes/Dock.prefPane
+osascript -e 'display dialog "Press General to see the Handoff option. ⟵  " with title " OSx Application"'
+open -W x-apple.systempreferences:com.apple.preference
+open -Wb com.apple.systempreferences /System/Library/PreferencePanes/InternetAccounts.prefPane/
+open -W /Applications/Contacts.app
+open -W /Applications/Reminders.app
+open -W /Applications/Notes.app
+open -W /Applications/Messages.app
+osascript -e 'display dialog "Click IBooks-->Prefences on the menu bar" with title " OSx Application"'
+open  /Applications/Books.app
+osascript -e 'display dialog "The Remaining of the check list like opening siri and going to google should be done manually  " with title " OSx Application"'
+}
+
+# Opens Services Within System Settings
+
+osxsystemsetting () 
+{
+osascript -e 'display dialog "Look At Menu Bar, Top Right First Column Will Have Information Needed For Your Checklist ↗  " with title "Instruction"'
+Sleep 3
+printf "Web Clients Will Open In 3 Seconds"
+open /Applications/Safari.app/
+open /Applications/Google\ Chrome.app/
+open /Applications/Firefox.app/
+
+}
+
+# Opens Services Within System Prefences
+
+SystemSettinOsx () 
+{
+open -W /System/Library/PreferencePanes/Bluetooth.prefPane/
+open -W /System/Library/PreferencePanes/Localization.prefPane
+open -W /System/Library/PreferencePanes/ParentalControls.prefPane
+open -W /System/Library/PreferencePanes/Spotlight.prefPane
+osascript -e 'display dialog "Click Computer Settings when Remote Management appear to see the image version info" with title " OSx Application"'
+open -W x-apple.systempreferences:com.apple.preferences.sharing?Remote_Management
+printf "Click Computer Management"
+open -W /Applications/App\ Store.app/
+open -W /System/Library/PreferencePanes/PrintAndScan.prefPane/
+
+}
+
+
+
+
+# Following Bellow Display The GUI OF THE MENU
+
+printf "Welcome to MACOSX_Automated_Checklist Version 3.7.1.2019, The Script is created by the Solution Design Engineering Team.\nThe purpose of the script is to reduce the operation time of testing MacOsx images. \n\n\n"
+
+choice=0
+
+while [ $choice -ne "6" ]
+
+printf "\n\n"
+
+do
+
+printf "CHECK FOLLOWING USER, Press 1 or B: Table B\n\n"
+printf "VERIFY APPLICATION VERSION, txt file store within "/Users/admin/Desktop/", Press 2 or D: Table D\n\n"
+printf "TEST FOLLOWING FEATURES, Press 3 or E, J(Teacher Account), K(Student Account), L(FSU Team): Table E,J,K,L\n\n"
+printf "TEST SYSTEM ACROSS ALL ACCOUNTS, Press 4 or F: Table F\n\n" 
+printf "TEST SYSTEM SETTINGS IN SYSTEM PREFERENCES, Press 5 or G: Table G\n\n"
+printf "Press Q or 0 to quit\n\n"
+
+
+
+Printf "Number = "
+read DISTR
+case $DISTR in
+
+     1 | b | B)
+          printf "\nList users within the Image\n"
+	      choice=1
+          MacOsUserTracker
+          ;;
+
+     2 | d | D)
+          printf "\nList application version within the image and store data within the /Users/admin/Desktop/ .\n"
+          choice=2
+	  MacOSxVersionTracker
+          ;;
+
+     3 | e | E | j | J | k | K | l | L)
+          Printf "\nPhase 3: Checking features for the NYC DOE\n"
+          choice=3
+          MacOsAcessApplication
+          ;; 
+
+     4 | f | F)
+          printf "\nPhase 4: Checking system setting across all accounts\n"
+          choice=4
+          osxsystemsetting
+          ;;
+
+     5 | g | G)
+          printf "\nPhase 5 Checking Setting in System Preferences\n"
+          choice=5
+	  SystemSettinOsx
+          ;;
+
+     0 | q |Q) printf "\nWill Close in 3 Sec\n"
+	  osascript -e 'display dialog "The Script Will Close In 3 Sec" with title "Closing"'
+	  sleep 3
+	  choice=6
+          exit ;;
+
+
+esac
+
+done
